@@ -18,6 +18,13 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    <div>
+                        <a href="{{ route('projects.index') }}" class="btn btn-primary mt-5">
+                            {{ __('View Projects') }}
+                        </a>
+                    </div>
+                    
+                    
                 </div>
             </div>
         </div>
