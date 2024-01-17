@@ -50,7 +50,7 @@ class ProjectController extends Controller
         $project->description = $validatedData['description'];
         $project->start_date = $validatedData['start_date'];
         if ($request->hasFile('image_path')) {
-            $imagePath = Storage::putFile('public/project_images', new File($request->file('image_path')->path()));
+            $imagePath = Storage::putFile('project_images', new File($request->file('image_path')->path()));
             $project->image_path = $imagePath;
         }
         $project->save();
@@ -86,7 +86,7 @@ class ProjectController extends Controller
             'image_path' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         if ($request->hasFile('image_path')) {
-            $imagePath = Storage::putFile('public/project_images', new File($request->file('image_path')->path()));
+            $imagePath = Storage::putFile('project_images', new File($request->file('image_path')->path()));
             $project->image_path = $imagePath;
         }
     

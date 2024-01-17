@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->text('description')->nullable();
             $table->date('start_date');
+            $table->string('image_path',200)->nullable();
+            $table->unsignedBigInteger('type_id')->nullable();
             $table->timestamps();
         });
     }

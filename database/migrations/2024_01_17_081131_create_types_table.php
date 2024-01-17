@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('types', function (Blueprint $table) {
             $table->id();
+            $table->string('type');
             $table->string('project_id');
-            $table->string('language');
+            $table->string('language')->nullable();
             $table->timestamps();
         });
     }
