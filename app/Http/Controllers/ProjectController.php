@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
@@ -40,11 +41,6 @@ class ProjectController extends Controller
             'start_date' => 'required|date',
             'image_path' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-    }
-        catch (ValidationException $e) {
-            dd($e->errors());
-            return redirect()->back()->withErrors($e->errors())->withInput();
-        }
         $project = new Project();
         $project->name = $validatedData['name'];
         $project->description = $validatedData['description'];
@@ -56,6 +52,13 @@ class ProjectController extends Controller
         $project->save();
 
             return redirect()->route('admin.projects.index')->with('success', 'Progetto creato con successo!');
+    }
+        catch (Exception $e) {
+            // dd($e->errors());
+
+            return redirect()->back()->withErrors($e->getMessage());
+        }
+       
     }
 
     /**

@@ -34,10 +34,10 @@
     <div class="row">
         @foreach($projects as $project)
         <div class="col-md-4 mb-3">
-            <div class="card mx-2">
-                @if($project->image_path)
-                <img src="{{ asset('storage/' . $project->image_path) }}" alt="Immagine del progetto">
-                @endif
+            <div class="card mx-2 d-flex">
+                    @if($project->image_path)
+                        <img src="{{ asset('storage/' . $project->image_path) }}" alt="Immagine del progetto">
+                    @endif
                 <div class="card-body">
                     <h5 class="card-title mt-1">{{ $project->name }}</h5>
                     <p class="card-text">{{ $project->description }}</p>
